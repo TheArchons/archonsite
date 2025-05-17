@@ -10,6 +10,7 @@ export function meta({}: Route.MetaArgs) {
 
 function Header() {
   return <div className="header">
+    <img className="header-logo" src={pfp} />
     <a href="/" className="header-title header-item">Archons</a>
 
     <a href="#about" className="header-item">About</a>
@@ -39,9 +40,27 @@ function Hero() {
   )
 }
 
+function Projects() {
+  return <div></div>
+}
+
+function Contact() {
+  return <div></div>
+}
+
+function Footer() {
+  return <footer className="footer">
+    <p>Made with :3 by Alex</p>
+    <p>Built with <a href="https://reactjs.org/">React</a></p>
+  </footer>
+}
+
 export default function Home() {
   return (<div className="flex flex-col items-center">
     <Header />
     <Hero />
+    <Projects />
+    <Contact />
+    <Footer />
   </div>)
 }
