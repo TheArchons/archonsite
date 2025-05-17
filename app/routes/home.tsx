@@ -22,7 +22,6 @@ function Header() {
 
       <a href="#about" className="header-item">About</a>
       <a href="#experience" className="header-item">Experience</a>
-      <a href="#contact" className="header-item">Contact</a>
     </div>
   );
 }
@@ -36,11 +35,15 @@ function Hero() {
         <p>
         Hi! I'm Alex, an incoming Computer Science National Scholar at the University of Toronto.<br/><br/>
         I am interested in a variety of subjects, but at the moment I am mainly exploring:<br/>
-        🌐 Front-end: Web Development: ReactJS, as well as HTML, CSS, and JS.<br/>
-        💾 Back-end: NodeJS, Django, REST APIs, SQL.<br/>
+        🌐 Front-end: Web Development: ReactJS + React Router, as well as HTML, CSS, and TypeScript.<br/>
+        💾 Back-end: Node.js, Express.js, Django (Python), C++, SQL.<br/>
         🔒 Cybersecurity: Reverse Engineering, Steganography<br/>
+        🤖 AI: LLMs (OpenAI API), Computer Vision.<br/>
+        ☁️ Infrastructure: Cloudflare, Linux (Debian and RHEL), Nginx
         </p>
-        <div style={{ marginTop: "1em" }}><a className="btn btn-large" href="/resume.pdf">Resume</a></div>
+        <div style={{ marginTop: "1em" }}>
+          <a href="/resume.pdf" target="_blank">Resume</a> | <a href="https://github.com/TheArchons" target="_blank">Github</a> | <a href="https://www.linkedin.com/in/alexanderl01/" target="_blank">LinkedIn</a> | <a href="mailto:archons@thearchons.xyz" target="_blank">Email</a>
+        </div>
       </div>
       <img className="pfp" src={pfp} />
       
@@ -193,10 +196,6 @@ function Experience() {
   )
 }
 
-function Contact() {
-  return <div className="section"></div>
-}
-
 function Footer() {
   return <footer className="footer">
     <p>Made with :3 by Alex</p>
@@ -209,7 +208,6 @@ export default function Home() {
     <Header />
     <Hero />
     <Experience />
-    <Contact />
     <Footer />
   </div>)
 }

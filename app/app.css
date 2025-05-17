@@ -34,6 +34,7 @@ body {
 
 .header-item {
   margin: 1em;
+  color: var(--text);
 }
 
 .header-item:hover {
@@ -194,11 +195,11 @@ h3 {
   }
 }
 
-.technology {
+a {
   color: var(--accent);
 }
 
-.technology:hover {
+a:hover {
   color: var(--alt-text);
 }
 
