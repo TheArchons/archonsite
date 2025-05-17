@@ -47,7 +47,10 @@ body {
 .hero {
   h1 {
     font-size: xxx-large;
-    color: var(--accent)
+
+    b {
+      color: var(--accent);
+    }
   }
 
   h2 {
