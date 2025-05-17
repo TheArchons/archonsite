@@ -16,8 +16,9 @@ body {
   --text: #EAE8E4;
   --alt-text: rgb(202, 202, 202);
   --bg: #0A0A09;
-  --accent: #F4822E;
-  --alt-accent: #df762b;
+  --bg-accent: #202024;
+  --accent: #E63946;
+  --alt-accent: #C7D3DD;
 
   color: var(--text);
 }
@@ -48,31 +49,31 @@ body {
 .header-logo {
   width: 5vh;
   height: 5vh;
-  border: 1px solid var(--text);
   border-radius: 50%;
 }
 
-.hero {
-  h1 {
-    font-size: xxx-large;
+h1 {
+  font-size: xxx-large;
 
-    b {
-      color: var(--accent);
-    }
+  b {
+    color: var(--accent);
   }
+}
 
+h3 {
+  font-size: large;
+  font-weight: bold;
+}
+
+.hero {
   h2 {
     font-size: xx-large;
   }
 }
 
-h1, h2, h3, h4, h5, h6, p, button, a {
-  margin-top: 1em;
-}
-
 .section {
   width: 80vw;
-  margin-top: 3em;
+  margin-top: 8em;
   display: flex;
   justify-content: space-between;
   gap: 5em;
@@ -105,14 +106,13 @@ h1, h2, h3, h4, h5, h6, p, button, a {
 } 
 
 .btn {
-  background-color: var(--accent);
   color: var(--text);
+  background-color: var(--accent);
   border-radius: 0.5em;
   padding: 0.5em;
   text-decoration: underline;
 
   &:hover {
-    background-color: var(--alt-accent);
     color: var(--alt-text);
   }
   &:active {
@@ -125,8 +125,91 @@ h1, h2, h3, h4, h5, h6, p, button, a {
   font-size: large;
 }
 
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.timeline-row-left {
+  flex-direction: row;
+}
+
+.timeline-row-right {
+  flex-direction: row-reverse;
+}
+
+.timeline-item {
+  width: 50%;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.timeline-item-panel {
+  border-radius: 0.5em;
+  background-color: var(--bg-accent);
+}
+
+.timeline-item-header {
+  font-weight: bold;
+  font-size: large;
+  background-color: var(--accent);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+
+  h2 {
+    margin: 0;
+    font-size: x-large;
+  }
+}
+
+.timeline-item-image {
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-item-body {
+  padding: 1em;
+
+  h2 {
+    margin: 0;
+    font-size: x-large;
+  }
+}
+
+.technology {
+  color: var(--accent);
+}
+
+.technology:hover {
+  color: var(--alt-text);
+}
+
+.line {
+  width: 2px;
+  height: 100%;
+}
+
 .footer {
   margin-top: 10vh;
+  margin-bottom: 3em;
   width: 90vw;
   height: 5vh;
   display: flex;
