@@ -8,6 +8,9 @@ import discard from "../static/img/experience/discard.webp";
 import privathon from "../static/img/experience/privathon.webp";
 import vex from "../static/img/experience/vex.webp";
 
+import { IconContext } from "react-icons";
+import { BsX, BsList } from "react-icons/bs";
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Home - Archons" },
@@ -15,7 +18,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-function Header() {
+function Header({ width, showDropdown, setShowDropdown }) {
   const [scrollY, setScrollY] = useState(window.scrollY);
 
   useEffect(() => {
@@ -28,16 +31,42 @@ function Header() {
     })
   })
 
-  return (
-    <div className={"header" + (scrollY ? " header-scrolled" : "")}>
-      <img className="header-logo header-item" src={pfp} />
-      <a href="/" className="header-title header-item">Archons</a>
+  function handleHamburgerClick() {
+    setShowDropdown(!showDropdown);
+  }
 
-      <a href="#about" className="header-item">About</a>
-      <a href="#experience" className="header-item">Experience</a>
-      <a href="https://blog.thearchons.xyz/" target="_blank" className="header-item">Blog</a>
-    </div>
+  return (
+      <nav className={"header" + (scrollY ? " header-scrolled" : "")}>
+        <img className="header-logo header-item" src={pfp} />
+        <a href="/" className="header-title header-item">Archons</a>
+        
+        { width > 500 ?
+          <>
+            <a href="#about" className="header-item">About</a>
+            <a href="#experience" className="header-item">Experience</a>
+            <a href="https://blog.thearchons.xyz/" target="_blank" className="header-item">Blog</a>
+          </>
+          :
+          <IconContext.Provider value={{ color: "white", size: "2em" }}>
+            <button onClick={ handleHamburgerClick }>
+              {
+                showDropdown ? <BsX /> : <BsList />
+              }
+            </button>
+          </IconContext.Provider>
+        }
+      </nav>
   );
+}
+
+function Dropdown() {
+  return (
+    <div className="dropdown">
+      <a href="#about" className="dropdown-item">About</a>
+      <a href="#experience" className="dropdown-item">Experience</a>
+      <a href="https://blog.thearchons.xyz/" target="_blank" className="dropdown-item">Blog</a>
+    </div>
+  )
 }
 
 function Hero() {
@@ -112,15 +141,7 @@ function Technologies({ technologies } : { technologies: { name: string; link: s
   )
 }
 
-function Experience() {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-
-    return () => window.removeEventListener("resize", () => setWidth(window.innerWidth));
-  })
-
+function Experience({ width } : { width: number }) {
   return (
     <div className="section" id="experience">
       <div style={{ width: "100%", margin: "0 auto" }}>
@@ -233,10 +254,20 @@ function Footer() {
 }
 
 export default function Home() {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+
+    return () => window.removeEventListener("resize", () => setWidth(window.innerWidth));
+  })
+
   return (<div className="flex flex-col items-center">
-    <Header />
+    <Header width={width} showDropdown={showDropdown} setShowDropdown={setShowDropdown} />
+    { showDropdown && <Dropdown /> }
     <Hero />
-    <Experience />
+      <Experience width={width} />
     <Footer />
   </div>)
 }
