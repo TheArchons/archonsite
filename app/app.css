@@ -28,12 +28,12 @@ body {
   width: 90vw;
   height: 5vh;
   display: flex;
+  gap: 1em;
   justify-content: flex-end;
   align-items: center;
 }
 
 .header-item {
-  margin: 1em;
   color: var(--text);
 }
 
