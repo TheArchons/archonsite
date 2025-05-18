@@ -89,6 +89,7 @@ h3 {
   justify-content: space-between;
   gap: 5em;
   align-content: center;
+  scroll-margin-top: 15vh;
 }
 
 .pfp {
