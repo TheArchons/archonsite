@@ -22,6 +22,7 @@ function Header() {
 
       <a href="#about" className="header-item">About</a>
       <a href="#experience" className="header-item">Experience</a>
+      <a href="https://blog.thearchons.xyz/" target="_blank" className="header-item">Blog</a>
     </div>
   );
 }
