@@ -2,11 +2,11 @@ import type { Route } from "./+types/home";
 import { useState, useEffect } from "react";
 import pfp from "../static/img/pfp.webp";
 
-import website from "../static/img/experience/website.png";
+import website from "../static/img/experience/website.webp";
 import scandium from "../static/img/experience/scandium.webp";
-import discard from "../static/img/experience/discard.png";
-import privathon from "../static/img/experience/privathon.png";
-import vex from "../static/img/experience/vex.png";
+import discard from "../static/img/experience/discard.webp";
+import privathon from "../static/img/experience/privathon.webp";
+import vex from "../static/img/experience/vex.webp";
 
 export function meta({}: Route.MetaArgs) {
   return [
