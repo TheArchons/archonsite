@@ -26,11 +26,21 @@ body {
 .header {
   margin-top: 5vh;
   width: 90vw;
-  height: 5vh;
+  height: 8vh;
   display: flex;
   gap: 1em;
   justify-content: flex-end;
   align-items: center;
+}
+
+.header-scrolled {
+  position: sticky;
+  top: 5vh;
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+  box-shadow: 0 0 10px var(--bg-accent);
+  padding: 1em;
+  backdrop-filter: blur(5px);
 }
 
 .header-item {

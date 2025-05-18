@@ -16,9 +16,21 @@ export function meta({}: Route.MetaArgs) {
 }
 
 function Header() {
+  const [scrollY, setScrollY] = useState(window.scrollY);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollY(window.scrollY);
+    });
+
+    return () => window.removeEventListener("scroll", () => {
+      setScrollY(window.scrollY)
+    })
+  })
+
   return (
-    <div className="header">
-      <img className="header-logo" src={pfp} />
+    <div className={"header" + (scrollY ? " header-scrolled" : "")}>
+      <img className="header-logo header-item" src={pfp} />
       <a href="/" className="header-title header-item">Archons</a>
 
       <a href="#about" className="header-item">About</a>
