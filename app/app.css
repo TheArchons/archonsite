@@ -90,22 +90,6 @@ h3 {
   margin-bottom: auto;
 }
 
-@media only screen and (max-width: 600px) {
-  .section {
-    display: block;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 1em;
-  }
-
-  .pfp {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    height: 60%;
-  }
-} 
-
 .btn {
   color: var(--text);
   background-color: var(--accent);
@@ -151,8 +135,7 @@ h3 {
 
 .timeline-item {
   width: 50%;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin: 2em;
 }
 
 .timeline-item-panel {
@@ -218,3 +201,23 @@ a:hover {
   align-items: center;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 700px) {
+  .section {
+    display: block;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1em;
+  }
+
+  .pfp {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 60%;
+  }
+
+  .timeline-item {
+    width: 100%;
+  }
+} 

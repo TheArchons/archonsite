@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import { useState, useEffect } from "react";
 import pfp from "../static/img/pfp.webp";
 
 import website from "../static/img/experience/website.png";
@@ -52,7 +53,7 @@ function Hero() {
   )
 }
 
-function TimelineRow({ title, image, children, isLeft } : { title: string; image: string; children: React.ReactNode; isLeft?: boolean }) {
+function TimelineRow({ width, title, image, children, isLeft } : { width: number, title: string; image: string; children: React.ReactNode; isLeft?: boolean }) {
   return (
     <div className={`timeline-row timeline-row-${isLeft ? "left" : "right"}`}>
       <div className="timeline-item">
@@ -68,12 +69,17 @@ function TimelineRow({ title, image, children, isLeft } : { title: string; image
           </div>
         </div>
       </div>
-      <div>
-        <svg className="line" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="0" x2="0" y2="100%" style={{ stroke: "white", strokeWidth: 2 }} />
-        </svg>
-      </div>
-      <div className="timeline-item"></div>
+      {
+        width > 700 && (
+          <>
+            <div>
+              <svg className="line" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="0" x2="0" y2="100%" style={{ stroke: "white", strokeWidth: 2 }} />
+              </svg>
+            </div>
+            <div className="timeline-item"></div>
+          </>)
+      }
     </div>
   )
 }
@@ -95,20 +101,30 @@ function Technologies({ technologies } : { technologies: { name: string; link: s
 }
 
 function Experience() {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+
+    return () => window.removeEventListener("resize", () => setWidth(window.innerWidth));
+  })
+
   return (
     <div className="section" id="experience">
       <div style={{ width: "100%", margin: "0 auto" }}>
         <h1>Experience</h1>
         <div className="timeline">
-          <div className="timeline-row">
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
-              <svg height="60" width="100" xmlns="http://www.w3.org/2000/svg">
-                <circle r="28" cx="50" cy="30" style={{ stroke: "white", strokeWidth: 4, fill: "#E63946" }} />
-              </svg>
+          { width > 700 && (
+            <div className="timeline-row">
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+                <svg height="60" width="100" xmlns="http://www.w3.org/2000/svg">
+                  <circle r="28" cx="50" cy="30" style={{ stroke: "white", strokeWidth: 4, fill: "#E63946" }} />
+                </svg>
+              </div>
             </div>
-          </div>
+          )}
 
-          <TimelineRow title="Archons Website" image={website} isLeft={false}>
+          <TimelineRow width={width} title="Archons Website" image={website} isLeft={false}>
             <h3>About</h3>
             <p>The website you are looking at right now!</p>
 
@@ -126,7 +142,7 @@ function Experience() {
             </div>
           </TimelineRow>
 
-          <TimelineRow title="Director of Technology @ XDHacks 2025" image={privathon} isLeft={true}>
+          <TimelineRow width={width} title="Director of Technology @ XDHacks 2025" image={privathon} isLeft={true}>
             <h3>About</h3>
             <p>I am the Director of Technology for XDHacks 2025, the largest highschool hackathon in Vancouver. I am responsible for overseeing the technology team, which includes managing the website, Discord server, and other technical aspects of the hackathon. I lead the development of a new hackathon site and currently manage the hosting/deployment process.</p>
 
@@ -141,7 +157,7 @@ function Experience() {
             </div>
           </TimelineRow>
 
-          <TimelineRow title="Scandium - AI code security" image={scandium} isLeft={false}>
+          <TimelineRow width={width} title="Scandium - AI code security" image={scandium} isLeft={false}>
             <h3>About</h3>
             <p>Scandium began as my hackathon project for UBC NWHacks 2025, which won the Canada Communications Security Establishment's sponsor prize. It is a Visual Studio Code extension that automatically scans for code vulnerabilities. It leverages local LLMs scan for vulnerabilities, while ensuring no secrets are exposed to the internet.</p>
 
@@ -158,7 +174,7 @@ function Experience() {
             </div>
           </TimelineRow>
 
-          <TimelineRow title="Discard - AI-powered chat moderation bot" image={discard} isLeft={true}>
+          <TimelineRow width={width} title="Discard - AI-powered chat moderation bot" image={discard} isLeft={true}>
             <h3>About</h3>
             <p>Discard started as my hackathon project for XDHacks Safehacks 2024, where it took first place. It's a Discord bot that uses a custom computer vision model alongside large language models to automatically moderate chat messages.</p>
             
@@ -177,7 +193,7 @@ function Experience() {
             </div>
           </TimelineRow>
 
-          <TimelineRow title="VEX Robotics Tournament Management Software" image={vex} isLeft={false}>
+          <TimelineRow width={width} title="VEX Robotics Tournament Management Software" image={vex} isLeft={false}>
             <h3>About</h3>
             <p>VEX Robotics Tournament Management Software is a web application designed to streamline the organization and management of VEX Robotics competitions. It automated leaderboards, scorekeeping, team selection. The software has been used in various competitions and with hundreds of users.</p>
 
