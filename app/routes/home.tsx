@@ -59,12 +59,16 @@ function Header({ width, showDropdown, setShowDropdown }) {
   );
 }
 
-function Dropdown() {
+function Dropdown({ setShowDropdown }) {
+  function handleDropdownClick() {
+    setShowDropdown(false);
+  }
+
   return (
     <div className="dropdown">
-      <a href="#about" className="dropdown-item">About</a>
-      <a href="#experience" className="dropdown-item">Experience</a>
-      <a href="https://blog.thearchons.xyz/" target="_blank" className="dropdown-item">Blog</a>
+      <a onClick={ handleDropdownClick } href="#about" className="dropdown-item">About</a>
+      <a onClick={ handleDropdownClick } href="#experience" className="dropdown-item">Experience</a>
+      <a onClick={ handleDropdownClick } href="https://blog.thearchons.xyz/" target="_blank" className="dropdown-item">Blog</a>
     </div>
   )
 }
@@ -265,7 +269,7 @@ export default function Home() {
 
   return (<div className="flex flex-col items-center">
     <Header width={width} showDropdown={showDropdown} setShowDropdown={setShowDropdown} />
-    { showDropdown && <Dropdown /> }
+    { showDropdown && <Dropdown setShowDropdown={setShowDropdown} /> }
     <Hero />
       <Experience width={width} />
     <Footer />
