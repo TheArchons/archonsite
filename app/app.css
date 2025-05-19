@@ -11,6 +11,7 @@ body {
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
+    background-color: var(--bg)
   }
 
   --text: #EAE8E4;
