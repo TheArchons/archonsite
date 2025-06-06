@@ -24,10 +24,8 @@ html,
 body {
   @apply bg-white dark:bg-gray-950;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-    background-color: var(--bg)
-  }
+  color-scheme: dark;
+  background-color: var(--bg);
 
   --text: #EAE8E4;
   --alt-text: rgb(202, 202, 202);
