@@ -116,14 +116,20 @@ function TimelineRow({ width, title, image, children, isLeft } : { width: number
         opacity: [0, 1],
         autoplay: onScroll()
       })
+
+      animate('.timeline-item-mobile', {
+        y: ["2rem", 0],
+        opacity: [0, 1],
+        autoplay: onScroll()
+      })
     });
 
     return () => scope.current.revert()
   }, [])
 
   return (
-    <div className={`timeline-row timeline-row-${isLeft ? "left" : "right"}`} ref={ root }>
-      <div className={`timeline-item timeline-item-${isLeft ? "left" : "right"}`}>
+    <div className={`timeline-row ${width > 700 && `timeline-row-${isLeft ? "left" : "right"}`}`} ref={ root }>
+      <div className={`timeline-item ${width > 700 ? `timeline-item-${isLeft ? "left" : "right"}` : `timeline-item-mobile`}`}>
         <div className="timeline-item-panel">
           <div className="timeline-item-header">
             <h2>{title}</h2>
