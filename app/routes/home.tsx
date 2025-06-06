@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { animate, createScope, onScroll } from "animejs";
 import pfp from "../static/img/pfp.webp";
 
 import website from "../static/img/experience/website.webp";
@@ -99,9 +100,30 @@ function Hero() {
 }
 
 function TimelineRow({ width, title, image, children, isLeft } : { width: number, title: string; image: string; children: React.ReactNode; isLeft?: boolean }) {
+  const scope = useRef<any>(null);
+  const root = useRef(null);
+  
+  useEffect(() => {
+    scope.current = createScope({ root }).add( self => {
+      animate('.timeline-item-left', {
+        x: ["-5rem", 0],
+        opacity: [0, 1],
+        autoplay: onScroll()
+      })
+
+      animate('.timeline-item-right', {
+        x: ["5rem", 0],
+        opacity: [0, 1],
+        autoplay: onScroll()
+      })
+    });
+
+    return () => scope.current.revert()
+  }, [])
+
   return (
-    <div className={`timeline-row timeline-row-${isLeft ? "left" : "right"}`}>
-      <div className="timeline-item">
+    <div className={`timeline-row timeline-row-${isLeft ? "left" : "right"}`} ref={ root }>
+      <div className={`timeline-item timeline-item-${isLeft ? "left" : "right"}`}>
         <div className="timeline-item-panel">
           <div className="timeline-item-header">
             <h2>{title}</h2>

@@ -53,6 +53,7 @@ body {
   box-shadow: 0 0 10px var(--bg-accent);
   padding: 1em;
   backdrop-filter: blur(20px);
+  z-index: 99;
 }
 
 .header-item {
@@ -178,6 +179,8 @@ h3 {
   padding-top: 0.5em;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
+  z-index: 99;
+  position: relative;
 
   h2 {
     margin: 0;
