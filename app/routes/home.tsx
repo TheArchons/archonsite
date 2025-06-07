@@ -281,7 +281,7 @@ function Experience({ width } : { width: number }) {
 function Footer() {
   return <footer className="footer">
     <p>Made with :3 by Alex</p>
-    <p>Built with <a href="https://reactjs.org/">React</a></p>
+    <p>Built with <a href="https://reactjs.org/">React</a> and <a href="https://animejs.com/">animeJS</a></p>
   </footer>
 }
 
