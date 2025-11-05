@@ -218,7 +218,7 @@ function Experience({ width } : { width: number }) {
             ]} />
 
             <div style={{ display: "flex", gap: "1em", marginTop: "1em" }}>
-              <a target="_blank" href="https://privathon.xdhacks.org" className="btn">View Website</a>
+              <a target="_blank" href="https://web.archive.org/web/20250803212325/https://privathon.xdhacks.org/" className="btn">View Website</a>
             </div>
           </TimelineRow>
 
