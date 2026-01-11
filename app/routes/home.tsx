@@ -8,6 +8,7 @@ import scandium from "../static/img/experience/scandium.webp";
 import discard from "../static/img/experience/discard.webp";
 import privathon from "../static/img/experience/privathon.webp";
 import vex from "../static/img/experience/vex.webp";
+import utatFinch from "../static/img/experience/utat-finch.webp";
 
 import { IconContext } from "react-icons";
 import { BsX, BsList } from "react-icons/bs";
@@ -135,7 +136,7 @@ function TimelineRow({ width, title, image, children, isLeft } : { width: number
             <h2>{title}</h2>
           </div>
           <div className="timeline-item-image">
-            <img src={image} alt="Timeline Item" />
+            <img className="max-h-80" src={image} alt="Timeline Item" />
           </div>
           <div className="timeline-item-body">
             {children}
@@ -188,6 +189,26 @@ function Experience({ width } : { width: number }) {
               </div>
             </div>
           )}
+
+            <TimelineRow width={width} title="Space Systems Firmware Engineer @ University of Toronto Aerospace Team" image={utatFinch} isLeft={true}>
+                <h3>About</h3>
+                <p>I am a firmware engineer for the <a href="https://www.utat.ca/space-systems">University of Toronto Aerospace Team</a> (UTAT). I worked directly on custom PCBs for our satellite, writing drivers and logic on the <a href="https://www.zephyrproject.org/">Zephyr</a> RTOS. Furthermore, I also collaborated extensively with other members of the team, performing code reviews, writing documentation, and improving CI/CD pipelines. My contributions include:</p>
+                <ul className="list-disc pl-4">
+                    <li>Integrating and adapting <a href="https://github.com/mcu-tools/mcuboot">MCUBoot</a> for use on our custom boards.</li>
+                    <li>Implementing a <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN</a> communication library for intra-satellite communication. This involved intensive debugging of clock timings and signals with an oscilloscope.</li>
+                </ul>
+
+                <Technologies technologies={[
+                    { name: "Zephyr", link: "https://www.zephyrproject.org/" },
+                    { name: "MCUBoot", link: "https://github.com/mcu-tools/mcuboot" },
+                    { name: "CAN", link: "https://en.wikipedia.org/wiki/CAN_bus" }
+                ]} />
+
+                <div style={{ display: "flex", gap: "1em", marginTop: "1em" }}>
+                    <a target="_blank" href="https://github.com/utat-ss/finch-flight-software" className="btn">Github</a>
+                    <a target="_blank" href="https://www.utat.ca/space-systems" className="btn">Space Systems website</a>
+                </div>
+            </TimelineRow>
 
           <TimelineRow width={width} title="Archons Website" image={website} isLeft={false}>
             <h3>About</h3>
