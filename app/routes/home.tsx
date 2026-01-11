@@ -8,7 +8,7 @@ import scandium from "../static/img/experience/scandium.webp";
 import discard from "../static/img/experience/discard.webp";
 import privathon from "../static/img/experience/privathon.webp";
 import vex from "../static/img/experience/vex.webp";
-import utatFinch from "../static/img/experience/utat-finch.png"
+import utatFinch from "../static/img/experience/utat-finch.webp";
 
 import { IconContext } from "react-icons";
 import { BsX, BsList } from "react-icons/bs";
