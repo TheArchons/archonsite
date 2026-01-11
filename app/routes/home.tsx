@@ -195,7 +195,7 @@ function Experience({ width } : { width: number }) {
                 <p>I am a firmware engineer for the <a href="https://www.utat.ca/space-systems">University of Toronto Aerospace Team</a> (UTAT). I worked directly on custom PCBs for our satellite, writing drivers and logic on the <a href="https://www.zephyrproject.org/">Zephyr</a> RTOS. Furthermore, I also collaborated extensively with other members of the team, performing code reviews, writing documentation, and improving CI/CD pipelines. My contributions include:</p>
                 <ul className="list-disc pl-4">
                     <li>Integrating and adapting <a href="https://github.com/mcu-tools/mcuboot">MCUBoot</a> for use on our custom boards.</li>
-                    <li>Implementing a <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN</a> communication library for intra-satellite communication. This involved intensive debugging of clock timings and signals with an oscilliscope.</li>
+                    <li>Implementing a <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN</a> communication library for intra-satellite communication. This involved intensive debugging of clock timings and signals with an oscilloscope.</li>
                 </ul>
 
                 <Technologies technologies={[
